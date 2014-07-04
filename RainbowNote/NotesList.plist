@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>orderId</key>
+		<string>1</string>
+		<key>content</key>
+		<string>Welcome to RainbowNote!</string>
+		<key>bgColor</key>
+		<string>#F6E1E0</string>
+		<key>leftColor</key>
+		<string>#EE858D</string>
+		<key>date</key>
+		<string></string>
+		<key>fullDate</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="130-km-Bk8">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Note List Table View Controller - Nots-->
+        <scene sceneID="xsr-a1-xRZ">
+            <objects>
+                <tableViewController id="6Ya-O5-a3Y" customClass="NoteListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="7MY-W6-6nv">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.84454649690000005" green="0.94665926690000002" blue="0.99966055149999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.84454649686813354" green="0.94665926694869995" blue="0.99966055154800415" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listcell" rowHeight="60" id="9bb-qh-mjh" customClass="ListCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9bb-qh-mjh" id="9hv-xg-3iP">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="北京易才博普奥管理顾问有限公司" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="220" translatesAutoresizingMaskIntoConstraints="NO" id="h1l-fV-E9Z">
+                                            <rect key="frame" x="23" y="8" width="220" height="44"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12-24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJ3-B6-mhL">
+                                            <rect key="frame" x="246" y="19" width="49" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UbF-RX-p1q">
+                                            <rect key="frame" x="0.0" y="-1" width="15" height="61"/>
+                                            <color key="backgroundColor" red="0.038826096609999999" green="0.80612244899999996" blue="0.08116334587" alpha="0.54000000000000004" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_write-right.png" translatesAutoresizingMaskIntoConstraints="NO" id="MiW-R6-cnV">
+                                            <rect key="frame" x="298" y="22" width="9" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="0.54000000000000004" colorSpace="calibratedRGB"/>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="contentBg" destination="9hv-xg-3iP" id="32O-Gq-lpK"/>
+                                    <outlet property="contentLabel" destination="h1l-fV-E9Z" id="ndH-EL-29y"/>
+                                    <outlet property="dateLabel" destination="UJ3-B6-mhL" id="k50-Lp-lLW"/>
+                                    <outlet property="leftBg" destination="UbF-RX-p1q" id="Ss0-u4-2FX"/>
+                                    <outlet property="rightImg" destination="MiW-R6-cnV" id="T5M-Y8-RHn"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6Ya-O5-a3Y" id="h7I-06-b5T"/>
+                            <outlet property="delegate" destination="6Ya-O5-a3Y" id="9gf-sO-FS4"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Nots" id="w2E-xA-h9w">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="Qa6-kn-mdc">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="addNewNote:" destination="6Ya-O5-a3Y" id="9on-bE-zUG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addBtn" destination="Qa6-kn-mdc" id="BhQ-To-hlL"/>
+                        <segue destination="l99-13-PIT" kind="push" identifier="edit" id="Ou4-yg-gSm"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dph-l6-sQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="560" y="394"/>
+        </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="FlQ-G7-QgC">
+            <objects>
+                <viewController id="l99-13-PIT" customClass="EditViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zZw-x5-Bu5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jxj-0Y-EDK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QpV-U2-REM">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hW5-QE-5f3">
+                                <rect key="frame" x="13" y="28" width="295" height="425"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2014年7月2日 15:31" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7c-c5-Pre">
+                                <rect key="frame" x="10" y="9" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVq-Dg-uje">
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="Bvx-ZZ-vav">
+                                        <connections>
+                                            <action selector="actions:" destination="l99-13-PIT" id="3lP-GW-gmP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="105" style="plain" systemItem="fixedSpace" id="Cjj-yF-Xwh"/>
+                                    <barButtonItem systemItem="trash" id="ger-Q7-9nl">
+                                        <connections>
+                                            <action selector="delete:" destination="l99-13-PIT" id="iM4-8r-Cux"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="105" style="plain" systemItem="fixedSpace" id="xap-qJ-nY8"/>
+                                    <barButtonItem systemItem="compose" id="jXA-Gh-eyK">
+                                        <connections>
+                                            <action selector="edit:" destination="l99-13-PIT" id="Hev-zT-tEf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.88636363640000004" green="1" blue="0.89937480609999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="FQO-aW-rIH">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="uxr-W1-ij7">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="back:" destination="l99-13-PIT" id="UTr-8y-5iZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="beV-4a-XfX">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="done:" destination="l99-13-PIT" id="TaF-IE-ScH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backBtn" destination="uxr-W1-ij7" id="4FU-2n-ZyE"/>
+                        <outlet property="bgView" destination="QpV-U2-REM" id="OR2-yg-0Ee"/>
+                        <outlet property="centerToolBtn" destination="ger-Q7-9nl" id="YPs-PI-Wmn"/>
+                        <outlet property="contentText" destination="hW5-QE-5f3" id="cba-fA-klG"/>
+                        <outlet property="dateLabel" destination="J7c-c5-Pre" id="3pe-r1-sNR"/>
+                        <outlet property="doneBtn" destination="beV-4a-XfX" id="cM2-ZY-xjP"/>
+                        <outlet property="leftToolBtn" destination="Bvx-ZZ-vav" id="Aar-Pc-GOU"/>
+                        <outlet property="rightToolBtn" destination="jXA-Gh-eyK" id="9IV-WU-87T"/>
+                        <outlet property="toolBar" destination="zVq-Dg-uje" id="dWx-1D-XKj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OpI-kV-IZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021" y="394"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0L5-fv-Nem">
+            <objects>
+                <navigationController id="130-km-Bk8" customClass="ViewController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="loO-ZE-csr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.32481751819999999" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textShadowColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6Ya-O5-a3Y" kind="relationship" relationship="rootViewController" id="v2Y-mY-mFV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z4M-Zz-qbi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="398"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow_write-right.png" width="37" height="60"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
