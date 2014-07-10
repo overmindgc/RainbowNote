@@ -20,7 +20,7 @@
 
 @end
 
-@interface EditViewController : UIViewController<UIActionSheetDelegate>
+@interface EditViewController : UIViewController<UIActionSheetDelegate, UITextViewDelegate>
 
 @property (nonatomic, weak) id <EditViewControllerDelegate> delegate;
 

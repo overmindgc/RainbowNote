@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="130-km-Bk8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="130-km-Bk8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -13,16 +13,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.84454649690000005" green="0.94665926690000002" blue="0.99966055149999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.84454649686813354" green="0.94665926694869995" blue="0.99966055154800415" alpha="1" colorSpace="calibratedRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="wUb-9d-2li">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listcell" rowHeight="60" id="9bb-qh-mjh" customClass="ListCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9bb-qh-mjh" id="9hv-xg-3iP">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="北京易才博普奥管理顾问有限公司" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="220" translatesAutoresizingMaskIntoConstraints="NO" id="h1l-fV-E9Z">
-                                            <rect key="frame" x="23" y="8" width="220" height="44"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="北京易才博普奥管理顾问有限公司" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="226" translatesAutoresizingMaskIntoConstraints="NO" id="h1l-fV-E9Z">
+                                            <rect key="frame" x="20" y="8" width="226" height="44"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -34,7 +40,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UbF-RX-p1q">
-                                            <rect key="frame" x="0.0" y="-1" width="15" height="61"/>
+                                            <rect key="frame" x="0.0" y="-1" width="10" height="61"/>
                                             <color key="backgroundColor" red="0.038826096609999999" green="0.80612244899999996" blue="0.08116334587" alpha="0.54000000000000004" colorSpace="calibratedRGB"/>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_write-right.png" translatesAutoresizingMaskIntoConstraints="NO" id="MiW-R6-cnV">
@@ -71,6 +77,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addBtn" destination="Qa6-kn-mdc" id="BhQ-To-hlL"/>
+                        <outlet property="searchBar" destination="wUb-9d-2li" id="ATI-ng-xYJ"/>
                         <segue destination="l99-13-PIT" kind="push" identifier="edit" id="Ou4-yg-gSm"/>
                     </connections>
                 </tableViewController>
@@ -90,59 +97,64 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hW5-QE-5f3">
-                                <rect key="frame" x="13" y="28" width="295" height="425"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
-                            </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2014年7月2日 15:31" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7c-c5-Pre">
-                                <rect key="frame" x="10" y="9" width="300" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVq-Dg-uje">
+                            <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVq-Dg-uje">
                                 <rect key="frame" x="0.0" y="460" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="Bvx-ZZ-vav">
                                         <connections>
-                                            <action selector="actions:" destination="l99-13-PIT" id="3lP-GW-gmP"/>
+                                            <action selector="actionsClick:" destination="l99-13-PIT" id="yP9-fL-sJf"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="105" style="plain" systemItem="fixedSpace" id="Cjj-yF-Xwh"/>
                                     <barButtonItem systemItem="trash" id="ger-Q7-9nl">
                                         <connections>
-                                            <action selector="delete:" destination="l99-13-PIT" id="iM4-8r-Cux"/>
+                                            <action selector="deleteClick:" destination="l99-13-PIT" id="fFa-T2-n5m"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="105" style="plain" systemItem="fixedSpace" id="xap-qJ-nY8"/>
                                     <barButtonItem systemItem="compose" id="jXA-Gh-eyK">
                                         <connections>
-                                            <action selector="edit:" destination="l99-13-PIT" id="Hev-zT-tEf"/>
+                                            <action selector="editClick:" destination="l99-13-PIT" id="e3n-MC-dTE"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2014年7月2日 15:31" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7c-c5-Pre">
+                                <rect key="frame" x="10" y="4" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hW5-QE-5f3">
+                                <rect key="frame" x="13" y="25" width="295" height="435"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.88636363640000004" green="1" blue="0.89937480609999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hW5-QE-5f3" secondAttribute="bottom" constant="44" id="FGS-hM-sKD"/>
+                            <constraint firstAttribute="bottom" secondItem="zVq-Dg-uje" secondAttribute="bottom" id="YVq-Dh-KN7"/>
+                            <constraint firstItem="hW5-QE-5f3" firstAttribute="top" secondItem="QpV-U2-REM" secondAttribute="top" constant="25" id="fQT-la-DXI"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FQO-aW-rIH">
                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="uxr-W1-ij7">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="back:" destination="l99-13-PIT" id="UTr-8y-5iZ"/>
+                                <action selector="backClick:" destination="l99-13-PIT" id="xnS-v9-7Ii"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="beV-4a-XfX">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="done:" destination="l99-13-PIT" id="TaF-IE-ScH"/>
+                                <action selector="doneClick:" destination="l99-13-PIT" id="lgL-8N-RtS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

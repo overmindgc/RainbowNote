@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "EditViewController.h"
 
-@interface NoteListTableViewController : UITableViewController <EditViewControllerDelegate>
+@interface NoteListTableViewController : UITableViewController <EditViewControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addBtn;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (nonatomic, strong) NSMutableArray *notes;
 

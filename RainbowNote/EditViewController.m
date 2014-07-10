@@ -33,8 +33,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     _tempRightBarItem = self.navigationItem.rightBarButtonItem;
+    
+    self.contentText.delegate = self;
     
     if (_note != nil) {
         self.navigationController.navigationBar.barTintColor = [Utils hexStringToColor:_note.leftColor];
@@ -79,9 +80,21 @@
 }
 */
 
+#pragma mark UITextViewDelegate
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    
+}
+
+
 #pragma mark actions
 
-- (IBAction)back:(id)sender {
+- (IBAction)backClick:(id)sender {
     if (self.contentText.editable == YES) {
         [self.delegate editViewController:self didAddNote:[self getNoteToSave]];
     } else {
@@ -89,18 +102,18 @@
     }
 }
 
-- (IBAction)done:(id)sender
+- (IBAction)doneClick:(id)sender
 {
     [self.delegate editViewController:self didAddNote:[self getNoteToSave]];
 }
 
-- (IBAction)edit:(id)sender {
+- (IBAction)editClick:(id)sender {
     self.navigationItem.rightBarButtonItem = _tempRightBarItem;
     self.contentText.editable = YES;
     [self.contentText becomeFirstResponder];
 }
 
-- (IBAction)delete:(id)sender {
+- (IBAction)deleteClick:(id)sender {
     sheet = [[UIActionSheet alloc] initWithTitle:@""
                                         delegate:self
                                cancelButtonTitle:@"Cancel"
@@ -111,7 +124,7 @@
 
 }
 
-- (IBAction)actions:(id)sender {
+- (IBAction)actionsClick:(id)sender {
     
 }
 

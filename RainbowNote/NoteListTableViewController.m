@@ -48,48 +48,16 @@
 {
     [super viewDidLoad];
     
-    self.notes = [[NoteDao sharedManager] findAll];
-//    self.notes = [[NSMutableArray alloc] initWithCapacity:4];
+    self.searchBar.delegate = self;
+    self.searchBar.tintColor = [UIColor grayColor];
+    [self hiddenSearchBar];
     
-//    Note *note1 = [[Note alloc] init];
-//    note1.orderId = 1;
-//    note1.content = @"北京易才博普奥管理顾问有限公司";
-//    note1.date = @"07-02";
-//    note1.fullDate = @"2014年7月2日 05:39";
-//    NSDictionary *couple1 = [Utils getOneCoupleColor];
-//    note1.leftColor = [Utils hexStringToColor:[couple1 objectForKey:@"left"]];
-//    note1.bgColor = [Utils hexStringToColor:[couple1 objectForKey:@"bg"]];
-//    [self.notes addObject:note1];
-//    
-//    Note *note2 = [[Note alloc] init];
-//    note2.orderId = 2;
-//    note2.content = @"Hello Swift!";
-//    note2.date = @"07-02";
-//    note2.fullDate = @"2014年7月2日 05:45";
-//    NSDictionary *couple2 = [Utils getOneCoupleColor];
-//    note2.leftColor = [Utils hexStringToColor:[couple2 objectForKey:@"left"]];
-//    note2.bgColor = [Utils hexStringToColor:[couple2 objectForKey:@"bg"]];
-//    [self.notes addObject:note2];
-//    
-//    Note *note3 = [[Note alloc] init];
-//    note3.orderId = 3;
-//    note3.content = @"This is my first short note content";
-//    note3.date = @"06-30";
-//    note3.fullDate = @"2014年6月30日 08:15";
-//    NSDictionary *couple3 = [Utils getOneCoupleColor];
-//    note3.leftColor = [Utils hexStringToColor:[couple3 objectForKey:@"left"]];
-//    note3.bgColor = [Utils hexStringToColor:[couple3 objectForKey:@"bg"]];
-//    [self.notes addObject:note3];
-//    
-//    Note *note4 = [[Note alloc] init];
-//    note4.orderId = 4;
-//    note4.content = @"我来测试一下多长的合适，好了，够长了吗，不够再来点";
-//    note4.date = @"12-24";
-//    note4.fullDate = @"2013年12月24日 09:08";
-//    NSDictionary *couple4 = [Utils getOneCoupleColor];
-//    note4.leftColor = [Utils hexStringToColor:[couple4 objectForKey:@"left"]];
-//    note4.bgColor = [Utils hexStringToColor:[couple4 objectForKey:@"bg"]];
-//    [self.notes addObject:note4];
+    self.notes = [[NoteDao sharedManager] findAll];
+
+//    UIView *modeView = [[UIView alloc] init];
+//    modeView.backgroundColor = [UIColor grayColor];
+//    modeView.alpha = 0.4;
+//    self.
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -135,7 +103,6 @@
     return cell;
 }
 
-
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -158,9 +125,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //副值给当前所选note
+    //赋值给当前所选note
     [self openNoteWith:[self.notes objectAtIndex:indexPath.row]];
 }
+
 
 /*
 // Override to support rearranging the table view.
@@ -177,6 +145,13 @@
     return YES;
 }
 */
+
+#pragma mark actions
+
+-(void)keyboardHide:(UITapGestureRecognizer*)tap{
+    self.searchBar.showsCancelButton = NO;
+    [self.view endEditing:YES];
+}
 
 
 #pragma mark - Navigation
@@ -197,6 +172,30 @@
 - (IBAction)addNewNote:(id)sender {
     //新建就把当前note为nil
     [self openNoteWith:nil];
+}
+
+#pragma mark - Search Bar delegate funciton
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    self.searchBar.showsCancelButton = YES;
+
+    return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
+{
+    //清空重置
+    self.searchBar.text = @"";
+    self.searchBar.showsCancelButton = NO;
+    [self.searchBar resignFirstResponder];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    //按软键盘右下角的搜索按钮时触发
+    [self.searchBar resignFirstResponder];
+    self.searchBar.showsCancelButton = NO;
 }
 
 #pragma mark - override edit delegate function
@@ -260,6 +259,7 @@
 {
     self.navigationController.navigationBar.barTintColor = _tempTopBarColor;
     [self.navigationController popToViewController:self animated:YES];
+    [self hiddenSearchBar];
 }
 
 //第一行插入新note
@@ -293,6 +293,12 @@
     [self.notes removeObjectAtIndex:index];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+//设置偏移隐藏searchBar
+- (void)hiddenSearchBar
+{
+    [self.tableView setContentOffset:CGPointMake(0, self.searchBar.frame.size.height)];
 }
 
 @end
