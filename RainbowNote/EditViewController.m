@@ -12,6 +12,8 @@
 @interface EditViewController ()
 {
     UIActionSheet *sheet;
+    //保存text原始高度
+    float originTextHeight;
 }
 
 @property (nonatomic,retain) UIBarButtonItem *tempRightBarItem;
@@ -29,13 +31,29 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //监听键盘弹出和中英文切换
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    //移除
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _tempRightBarItem = self.navigationItem.rightBarButtonItem;
     
     self.contentText.delegate = self;
+    originTextHeight = self.contentText.frame.size.height;
+    
+    _tempRightBarItem = self.navigationItem.rightBarButtonItem;
     
     if (_note != nil) {
         self.navigationController.navigationBar.barTintColor = [Utils hexStringToColor:_note.leftColor];
@@ -53,6 +71,7 @@
         _note.leftColor = [couple objectForKey:@"left"];
         _note.bgColor = [couple objectForKey:@"bg"];
         self.navigationController.navigationBar.barTintColor = [Utils hexStringToColor:_note.leftColor];
+        self.toolBar.backgroundColor = [Utils hexStringToColor:_note.leftColor];
         self.bgView.backgroundColor = [Utils hexStringToColor:_note.bgColor];
         self.dateLabel.text = [Utils getFullTextDate:[NSDate date]];
         [self.contentText becomeFirstResponder];
@@ -69,6 +88,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 /*
 #pragma mark - Navigation
 
@@ -79,18 +99,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-#pragma mark UITextViewDelegate
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
-    
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
-    
-}
-
 
 #pragma mark actions
 
@@ -105,6 +113,9 @@
 - (IBAction)doneClick:(id)sender
 {
     [self.delegate editViewController:self didAddNote:[self getNoteToSave]];
+//    self.navigationItem.rightBarButtonItem = nil;
+//    self.contentText.editable = NO;
+//    [self.contentText resignFirstResponder];
 }
 
 - (IBAction)editClick:(id)sender {
@@ -127,6 +138,32 @@
 - (IBAction)actionsClick:(id)sender {
     
 }
+
+//键盘改变大小响应
+-(void)keyboardWillChangeFrame:(NSNotification*)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];//更改后的键盘
+    
+    CGRect keyboardRect = [aValue CGRectValue];
+    CGFloat height = keyboardRect.size.height;
+    
+    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval animationDuration;
+    [animationDurationValue getValue:&animationDuration];
+	
+    //改变textfield的高度
+    self.contentText.frame = CGRectMake(self.contentText.frame.origin.x, self.contentText.frame.origin.y, self.contentText.frame.size.width, self.view.frame.size.height - height - 25);
+}
+
+#pragma mark - UITextViewDelegate
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    //还原textfield的高度
+//    self.contentText.frame = CGRectMake(self.contentText.frame.origin.x, self.contentText.frame.origin.y, self.contentText.frame.size.width, originTextHeight);
+}
+
 
 #pragma mark - actionSheepDelegate
 

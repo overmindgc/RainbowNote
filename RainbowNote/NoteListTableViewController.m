@@ -96,7 +96,7 @@
     cell.dateLabel.text = note.date;
     cell.leftBg.backgroundColor = [Utils hexStringToColor:note.leftColor];
     cell.contentBg.backgroundColor = [Utils hexStringToColor:note.bgColor];
-//    cell.contentLabel.textColor = note.leftColor;
+//    cell.contentLabel.textColor = [Utils hexStringToColor:note.leftColor];
     cell.dateLabel.textColor = [Utils hexStringToColor:note.leftColor];
     cell.rightImg.backgroundColor = [Utils hexStringToColor:note.leftColor];
     
