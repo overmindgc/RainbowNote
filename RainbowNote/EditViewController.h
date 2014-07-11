@@ -20,7 +20,7 @@
 
 @end
 
-@interface EditViewController : UIViewController<UIActionSheetDelegate, UITextViewDelegate>
+@interface EditViewController : UIViewController<UIActionSheetDelegate, UITextViewDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, weak) id <EditViewControllerDelegate> delegate;
 
@@ -30,6 +30,7 @@
 @property (strong, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contentText;
+@property (weak, nonatomic) IBOutlet UIImageView *contentImage;
 
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftToolBtn;

@@ -20,6 +20,7 @@
 		7B4B10D3196637E700821A19 /* NoteDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4B10D2196637E700821A19 /* NoteDao.m */; };
 		7B4B10D5196650C300821A19 /* arrow_write-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4B10D4196650C300821A19 /* arrow_write-right.png */; };
 		7B4B10D71966728200821A19 /* NotesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B4B10D61966728200821A19 /* NotesList.plist */; };
+		7B6C6A5A196FCB390054A079 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6C6A59196FCB390054A079 /* ImageCell.m */; };
 		7BAB25281963E601003F8857 /* arrow_gray-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BAB25261963E601003F8857 /* arrow_gray-right.png */; };
 		7BAB252C1963EB8E003F8857 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB252B1963EB8E003F8857 /* EditViewController.m */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,8 @@
 		7B4B10D2196637E700821A19 /* NoteDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDao.m; sourceTree = "<group>"; };
 		7B4B10D4196650C300821A19 /* arrow_write-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_write-right.png"; sourceTree = "<group>"; };
 		7B4B10D61966728200821A19 /* NotesList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NotesList.plist; sourceTree = "<group>"; };
+		7B6C6A58196FCB390054A079 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		7B6C6A59196FCB390054A079 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
 		7BAB25261963E601003F8857 /* arrow_gray-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_gray-right.png"; sourceTree = "<group>"; };
 		7BAB252A1963EB8E003F8857 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		7BAB252B1963EB8E003F8857 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 			children = (
 				7B0955C619639CF400C4A7BD /* ListCell.m */,
 				7B0955C519639CF400C4A7BD /* ListCell.h */,
+				7B6C6A58196FCB390054A079 /* ImageCell.h */,
+				7B6C6A59196FCB390054A079 /* ImageCell.m */,
 			);
 			name = comps;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B0955C019639C5600C4A7BD /* Note.m in Sources */,
+				7B6C6A5A196FCB390054A079 /* ImageCell.m in Sources */,
 				7BAB252C1963EB8E003F8857 /* EditViewController.m in Sources */,
 				7B0955C719639CF400C4A7BD /* ListCell.m in Sources */,
 				7B0955A11962BA9600C4A7BD /* ViewController.m in Sources */,

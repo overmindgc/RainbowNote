@@ -10,4 +10,34 @@
 
 @implementation Note
 
+- (NSString *)type
+{
+    if (_type != nil) {
+        return _type;
+    } else
+    {
+        return @"text";
+    }
+}
+
+- (NSString *)content
+{
+    if (_content != nil) {
+        return _content;
+    } else
+    {
+        return @"";
+    }
+}
+
+- (NSString *)imgPath
+{
+    if (_imgPath != nil) {
+        return _imgPath;
+    } else
+    {
+        return @"";
+    }
+}
+
 @end

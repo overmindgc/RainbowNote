@@ -49,7 +49,7 @@
     NSString *path = [self applicationDocumentsDirectoryFile];
     NSMutableArray *array = [[NSMutableArray alloc] initWithContentsOfFile:path];
     
-    NSDictionary *dict = [NSDictionary dictionaryWithObjects:@[[NSNumber numberWithInt:model.orderId], model.content, model.leftColor, model.bgColor, model.date, model.fullDate] forKeys:@[@"orderId",@"content",@"leftColor",@"bgColor",@"date",@"fullDate"]];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:@[[NSNumber numberWithInt:model.orderId], model.type, model.content, model.leftColor, model.bgColor, model.date, model.fullDate, model.imgPath] forKeys:@[@"orderId",@"type",@"content",@"leftColor",@"bgColor",@"date",@"fullDate",@"imgPath"]];
     
     [array insertObject:dict atIndex:0];
     
@@ -64,6 +64,7 @@
     NSString *path = [self applicationDocumentsDirectoryFile];
     NSMutableArray *array = [[NSMutableArray alloc] initWithContentsOfFile:path];
     
+    //删除plist记录
     for (NSDictionary *dict in array) {
         int orderId = [[dict objectForKey:@"orderId"] intValue];
         if (orderId == model.orderId) {
@@ -71,6 +72,13 @@
             [array writeToFile:path atomically:YES];
             break;
         }
+    }
+    
+    if ([model.type isEqualToString:@"image"]) {
+        //删除图片
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:model.imgPath error:nil];
+        
     }
     
     return 0;
@@ -86,6 +94,8 @@
         int orderId = [[dict objectForKey:@"orderId"] intValue];
         if (orderId == model.orderId) {
             [dict setValue:model.content forKey:@"content"];
+            [dict setValue:model.type forKey:@"type"];
+            [dict setValue:model.imgPath forKey:@"imgPath"];
             [dict setValue:model.leftColor forKey:@"leftColor"];
             [dict setValue:model.bgColor forKey:@"bgColor"];
             [dict setValue:model.date forKey:@"date"];
@@ -109,6 +119,8 @@
     for (NSDictionary *dict in array) {
         Note *note = [[Note alloc] init];
         note.orderId = [[dict objectForKey:@"orderId"] intValue];
+        note.type = [dict objectForKey:@"type"];
+        note.imgPath = [dict objectForKey:@"imgPath"];
         note.content = [dict objectForKey:@"content"];
         note.leftColor = [dict objectForKey:@"leftColor"];
         note.bgColor = [dict objectForKey:@"bgColor"];
@@ -131,6 +143,8 @@
         if ([[dict objectForKey:@"orderId"] intValue] == model.orderId) {
             Note *note = [[Note alloc] init];
             note.orderId = [[dict objectForKey:@"orderId"] intValue];
+            note.type = [dict objectForKey:@"type"];
+            note.imgPath = [dict objectForKey:@"imgPath"];
             note.content = [dict objectForKey:@"content"];
             note.leftColor = [dict objectForKey:@"leftColor"];
             note.bgColor = [dict objectForKey:@"bgColor"];
