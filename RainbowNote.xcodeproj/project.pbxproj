@@ -20,19 +20,13 @@
 		7B3CA99419751AC800E2B975 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CA99319751AC800E2B975 /* PhotoCell.m */; };
 		7B3CA9971975451300E2B975 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CA9961975451300E2B975 /* RootViewController.m */; };
 		7B3CA99F197641E300E2B975 /* PhotoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CA99E197641E300E2B975 /* PhotoEditViewController.m */; };
-		7B3CA9A219766C4E00E2B975 /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B3CA9A119766C4E00E2B975 /* example.jpg */; };
-		7B3CA9AD1977964B00E2B975 /* ASImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CA9A51977964B00E2B975 /* ASImageScrollView.m */; };
-		7B3CA9AE1977964B00E2B975 /* ASMediaFocusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CA9A71977964B00E2B975 /* ASMediaFocusController.m */; };
-		7B3CA9AF1977964B00E2B975 /* ASMediaFocusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B3CA9A81977964B00E2B975 /* ASMediaFocusController.xib */; };
-		7B3CA9B01977964B00E2B975 /* ASMediaFocusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CA9AA1977964B00E2B975 /* ASMediaFocusManager.m */; };
-		7B3CA9B11977964B00E2B975 /* ASTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CA9AC1977964B00E2B975 /* ASTransparentView.m */; };
 		7B4B10D3196637E700821A19 /* NoteDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4B10D2196637E700821A19 /* NoteDao.m */; };
 		7B4B10D5196650C300821A19 /* arrow_write-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4B10D4196650C300821A19 /* arrow_write-right.png */; };
 		7B4B10D71966728200821A19 /* NotesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B4B10D61966728200821A19 /* NotesList.plist */; };
 		7B6C6A5A196FCB390054A079 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6C6A59196FCB390054A079 /* ImageCell.m */; };
 		7BAB25281963E601003F8857 /* arrow_gray-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BAB25261963E601003F8857 /* arrow_gray-right.png */; };
 		7BAB252C1963EB8E003F8857 /* NoteEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB252B1963EB8E003F8857 /* NoteEditViewController.m */; };
-		7BDF86BC1977B563005F53D8 /* SJAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF86BB1977B563005F53D8 /* SJAvatarBrowser.m */; };
+		7BDF86BC1977B563005F53D8 /* ImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF86BB1977B563005F53D8 /* ImageBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,16 +68,6 @@
 		7B3CA99D197641E300E2B975 /* PhotoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditViewController.h; sourceTree = "<group>"; };
 		7B3CA99E197641E300E2B975 /* PhotoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditViewController.m; sourceTree = "<group>"; };
 		7B3CA9A0197642ED00E2B975 /* EditViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewControllerDelegate.h; sourceTree = "<group>"; };
-		7B3CA9A119766C4E00E2B975 /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example.jpg; sourceTree = "<group>"; };
-		7B3CA9A41977964B00E2B975 /* ASImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASImageScrollView.h; sourceTree = "<group>"; };
-		7B3CA9A51977964B00E2B975 /* ASImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASImageScrollView.m; sourceTree = "<group>"; };
-		7B3CA9A61977964B00E2B975 /* ASMediaFocusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMediaFocusController.h; sourceTree = "<group>"; };
-		7B3CA9A71977964B00E2B975 /* ASMediaFocusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusController.m; sourceTree = "<group>"; };
-		7B3CA9A81977964B00E2B975 /* ASMediaFocusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMediaFocusController.xib; sourceTree = "<group>"; };
-		7B3CA9A91977964B00E2B975 /* ASMediaFocusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMediaFocusManager.h; sourceTree = "<group>"; };
-		7B3CA9AA1977964B00E2B975 /* ASMediaFocusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusManager.m; sourceTree = "<group>"; };
-		7B3CA9AB1977964B00E2B975 /* ASTransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTransparentView.h; sourceTree = "<group>"; };
-		7B3CA9AC1977964B00E2B975 /* ASTransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTransparentView.m; sourceTree = "<group>"; };
 		7B4B10D1196637E700821A19 /* NoteDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDao.h; sourceTree = "<group>"; };
 		7B4B10D2196637E700821A19 /* NoteDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDao.m; sourceTree = "<group>"; };
 		7B4B10D4196650C300821A19 /* arrow_write-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_write-right.png"; sourceTree = "<group>"; };
@@ -93,8 +77,8 @@
 		7BAB25261963E601003F8857 /* arrow_gray-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_gray-right.png"; sourceTree = "<group>"; };
 		7BAB252A1963EB8E003F8857 /* NoteEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteEditViewController.h; sourceTree = "<group>"; };
 		7BAB252B1963EB8E003F8857 /* NoteEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteEditViewController.m; sourceTree = "<group>"; };
-		7BDF86BA1977B563005F53D8 /* SJAvatarBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJAvatarBrowser.h; sourceTree = "<group>"; };
-		7BDF86BB1977B563005F53D8 /* SJAvatarBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJAvatarBrowser.m; sourceTree = "<group>"; };
+		7BDF86BA1977B563005F53D8 /* ImageBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageBrowser.h; sourceTree = "<group>"; };
+		7BDF86BB1977B563005F53D8 /* ImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBrowser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +192,6 @@
 		7B0955C419639CC300C4A7BD /* comps */ = {
 			isa = PBXGroup;
 			children = (
-				7B3CA9A31977958100E2B975 /* ASMediaFocusManager */,
 				7B0955C619639CF400C4A7BD /* ListCell.m */,
 				7B0955C519639CF400C4A7BD /* ListCell.h */,
 				7B6C6A58196FCB390054A079 /* ImageCell.h */,
@@ -222,8 +205,8 @@
 		7B0955C819639DE000C4A7BD /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				7BDF86BA1977B563005F53D8 /* SJAvatarBrowser.h */,
-				7BDF86BB1977B563005F53D8 /* SJAvatarBrowser.m */,
+				7BDF86BA1977B563005F53D8 /* ImageBrowser.h */,
+				7BDF86BB1977B563005F53D8 /* ImageBrowser.m */,
 				7B0955C919639E3C00C4A7BD /* Utils.h */,
 				7B0955CA19639E3C00C4A7BD /* Utils.m */,
 			);
@@ -239,22 +222,6 @@
 			name = delegates;
 			sourceTree = "<group>";
 		};
-		7B3CA9A31977958100E2B975 /* ASMediaFocusManager */ = {
-			isa = PBXGroup;
-			children = (
-				7B3CA9A41977964B00E2B975 /* ASImageScrollView.h */,
-				7B3CA9A51977964B00E2B975 /* ASImageScrollView.m */,
-				7B3CA9A61977964B00E2B975 /* ASMediaFocusController.h */,
-				7B3CA9A71977964B00E2B975 /* ASMediaFocusController.m */,
-				7B3CA9A81977964B00E2B975 /* ASMediaFocusController.xib */,
-				7B3CA9A91977964B00E2B975 /* ASMediaFocusManager.h */,
-				7B3CA9AA1977964B00E2B975 /* ASMediaFocusManager.m */,
-				7B3CA9AB1977964B00E2B975 /* ASTransparentView.h */,
-				7B3CA9AC1977964B00E2B975 /* ASTransparentView.m */,
-			);
-			name = ASMediaFocusManager;
-			sourceTree = "<group>";
-		};
 		7B4B10D0196637D300821A19 /* dao */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,7 +234,6 @@
 		7BAB251A1963CB15003F8857 /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				7B3CA9A119766C4E00E2B975 /* example.jpg */,
 				7B4B10D4196650C300821A19 /* arrow_write-right.png */,
 				7BAB25261963E601003F8857 /* arrow_gray-right.png */,
 			);
@@ -358,8 +324,6 @@
 				7B4B10D71966728200821A19 /* NotesList.plist in Resources */,
 				7BAB25281963E601003F8857 /* arrow_gray-right.png in Resources */,
 				7B4B10D5196650C300821A19 /* arrow_write-right.png in Resources */,
-				7B3CA9A219766C4E00E2B975 /* example.jpg in Resources */,
-				7B3CA9AF1977964B00E2B975 /* ASMediaFocusController.xib in Resources */,
 				7B0955A61962BA9600C4A7BD /* Images.xcassets in Resources */,
 				7B0955CD1963B39200C4A7BD /* Main.storyboard in Resources */,
 			);
@@ -396,24 +360,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BDF86BC1977B563005F53D8 /* SJAvatarBrowser.m in Sources */,
+				7BDF86BC1977B563005F53D8 /* ImageBrowser.m in Sources */,
 				7B3CA99F197641E300E2B975 /* PhotoEditViewController.m in Sources */,
 				7B3CA99419751AC800E2B975 /* PhotoCell.m in Sources */,
 				7B0955C019639C5600C4A7BD /* Note.m in Sources */,
 				7B6C6A5A196FCB390054A079 /* ImageCell.m in Sources */,
 				7BAB252C1963EB8E003F8857 /* NoteEditViewController.m in Sources */,
-				7B3CA9AD1977964B00E2B975 /* ASImageScrollView.m in Sources */,
-				7B3CA9AE1977964B00E2B975 /* ASMediaFocusController.m in Sources */,
 				7B0955C719639CF400C4A7BD /* ListCell.m in Sources */,
 				7B0955BD1962BD3B00C4A7BD /* NoteListTableViewController.m in Sources */,
 				7B09559E1962BA9600C4A7BD /* AppDelegate.m in Sources */,
 				7B3CA99119751AA300E2B975 /* PhotosTableViewController.m in Sources */,
-				7B3CA9B11977964B00E2B975 /* ASTransparentView.m in Sources */,
 				7B0955CB19639E3C00C4A7BD /* Utils.m in Sources */,
 				7B3CA9971975451300E2B975 /* RootViewController.m in Sources */,
 				7B4B10D3196637E700821A19 /* NoteDao.m in Sources */,
 				7B09559B1962BA9600C4A7BD /* main.m in Sources */,
-				7B3CA9B01977964B00E2B975 /* ASMediaFocusManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

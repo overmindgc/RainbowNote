@@ -13,6 +13,8 @@
 #import "PhotoEditViewController.h"
 #import "NoteDao.h"
 
+#define smallImageWidth  604.0 //压缩图片的宽
+
 @interface PhotosTableViewController ()
 
 @property Note *currNote;
@@ -238,8 +240,8 @@
     
     //获取裁剪后的小图
     CGSize smallImgSize = image.size;
-    smallImgSize.width = 604;
-    smallImgSize.height = 604 / image.size.width * smallImgSize.height;
+    smallImgSize.width = smallImageWidth;
+    smallImgSize.height = smallImageWidth / image.size.width * smallImgSize.height;
     
     UIImage *smallImage = [self imageWithImage:image scaledToSize:smallImgSize];
     

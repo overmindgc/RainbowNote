@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SJAvatarBrowser : NSObject
+@interface ImageBrowser : NSObject
 /**
  *  @brief  浏览头像
  *

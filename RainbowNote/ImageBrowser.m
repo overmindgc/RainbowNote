@@ -7,11 +7,11 @@
 //  Copyright (c) 2014年 gc. All rights reserved.
 //
 
-#import "SJAvatarBrowser.h"
+#import "ImageBrowser.h"
 
 static CGRect oldframe;
 
-@implementation SJAvatarBrowser
+@implementation ImageBrowser
 
 + (void)showImage:(UIImageView *)avatarImageView{
     UIImage *image = avatarImageView.image;

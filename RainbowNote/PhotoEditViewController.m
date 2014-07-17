@@ -8,7 +8,7 @@
 
 #import "PhotoEditViewController.h"
 #import "Utils.h"
-#import "SJAvatarBrowser.h"
+#import "ImageBrowser.h"
 
 @interface PhotoEditViewController ()
 {
@@ -157,10 +157,10 @@
 
 }
 
+//图片点击响应
 - (void)magnifyImage
 {
-    NSLog(@"局部放大");
-    [SJAvatarBrowser showImage:self.contentImage];//调用方法
+    [ImageBrowser showImage:self.contentImage];//调用方法
 }
 
 #pragma mark - textfieldDelegates
