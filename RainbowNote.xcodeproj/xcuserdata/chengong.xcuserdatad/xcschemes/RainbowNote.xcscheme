@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7B0955941962BA9600C4A7BD"
-               BuildableName = "RainbowNote.app"
+               BuildableName = "&#x5f69;&#x8679;&#x4fbf;&#x7b7e;.app"
                BlueprintName = "RainbowNote"
                ReferencedContainer = "container:RainbowNote.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7B0955941962BA9600C4A7BD"
-            BuildableName = "RainbowNote.app"
+            BuildableName = "&#x5f69;&#x8679;&#x4fbf;&#x7b7e;.app"
             BlueprintName = "RainbowNote"
             ReferencedContainer = "container:RainbowNote.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7B0955941962BA9600C4A7BD"
-            BuildableName = "RainbowNote.app"
+            BuildableName = "&#x5f69;&#x8679;&#x4fbf;&#x7b7e;.app"
             BlueprintName = "RainbowNote"
             ReferencedContainer = "container:RainbowNote.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7B0955941962BA9600C4A7BD"
-            BuildableName = "RainbowNote.app"
+            BuildableName = "&#x5f69;&#x8679;&#x4fbf;&#x7b7e;.app"
             BlueprintName = "RainbowNote"
             ReferencedContainer = "container:RainbowNote.xcodeproj">
          </BuildableReference>

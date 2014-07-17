@@ -8,19 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Note.h"
-@class EditViewController;
-@class Note;
+#import "EditViewControllerDelegate.h"
+@class NoteEditViewController;
 
-@protocol EditViewControllerDelegate <NSObject>
-
-- (void)editViewControllerDidCancel:(EditViewController *)controller;
-- (void)editViewController:(EditViewController *)controller didAddNote:(Note *)note;
-- (void)editViewControllerDeleteNoteWith:(int)orderId;
-- (void)editViewControllerOpenLastNote;
-
-@end
-
-@interface EditViewController : UIViewController<UIActionSheetDelegate, UITextViewDelegate, UIScrollViewDelegate>
+@interface NoteEditViewController : UIViewController<UIActionSheetDelegate, UITextViewDelegate>
 
 @property (nonatomic, weak) id <EditViewControllerDelegate> delegate;
 
@@ -30,7 +21,6 @@
 @property (strong, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contentText;
-@property (weak, nonatomic) IBOutlet UIImageView *contentImage;
 
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftToolBtn;

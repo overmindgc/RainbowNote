@@ -18,6 +18,7 @@
 @property (nonatomic,copy) NSString *fullDate;
 @property (nonatomic) NSString *leftColor;
 @property (nonatomic) NSString *bgColor;
+@property (nonatomic) NSString *smallImgPath;
 @property (nonatomic) NSString *imgPath;
 
 @end

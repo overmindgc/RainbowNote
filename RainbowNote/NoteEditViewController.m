@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 gc. All rights reserved.
 //
 
-#import "EditViewController.h"
+#import "NoteEditViewController.h"
 #import "Utils.h"
 
-@interface EditViewController ()
+@interface NoteEditViewController ()
 {
     UIActionSheet *sheet;
     //保存text原始高度
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation EditViewController
+@implementation NoteEditViewController
 {
     BOOL isFullScreen;
 }
@@ -66,12 +66,6 @@
         self.navigationItem.rightBarButtonItem = nil;
         self.contentText.editable = NO;
         self.toolBar.backgroundColor = [Utils hexStringToColor:_note.leftColor];
-        
-        if ([_note.type isEqualToString:@"image"]) {
-            [self.contentImage setHidden:NO];
-            [self.contentImage initWithImage:[UIImage imageWithContentsOfFile:_note.imgPath]];
-            self.rightToolBtn.enabled = NO;
-        }
         
     } else
     {
@@ -166,39 +160,6 @@
     self.contentText.frame = CGRectMake(self.contentText.frame.origin.x, self.contentText.frame.origin.y, self.contentText.frame.size.width, self.view.frame.size.height - height - 25);
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    isFullScreen = !isFullScreen;
-    
-    UITouch *touch = [touches anyObject];
-    
-    CGPoint touchPoint = [touch locationInView:self.view];
-    
-    CGPoint imagePoint = self.contentImage.frame.origin;
-    //touchPoint.x ，touchPoint.y 就是触点的坐标
-    
-    // 触点在imageView内，点击imageView时 放大,再次点击时缩小
-    if(imagePoint.x <= touchPoint.x && imagePoint.x +self.contentImage.frame.size.width >=touchPoint.x && imagePoint.y <=  touchPoint.y && imagePoint.y+self.contentImage.frame.size.height >= touchPoint.y)
-    {
-        // 设置图片放大动画
-        [UIView beginAnimations:nil context:nil];
-        // 动画时间
-        [UIView setAnimationDuration:1];
-        
-        if (isFullScreen) {
-            // 放大尺寸
-            self.contentImage.frame = CGRectMake(0, 0, 320, 480);
-        }
-        else {
-            // 缩小尺寸
-            self.contentImage.frame = CGRectMake(50, 65, 90, 115);
-        }
-        
-        // commit动画
-        [UIView commitAnimations];
-    }
-
-}
 #pragma mark - UITextViewDelegate
 
 - (void)textViewDidEndEditing:(UITextView *)textView

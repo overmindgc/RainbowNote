@@ -9,9 +9,8 @@
 #import "NoteListTableViewController.h"
 #import "Note.h"
 #import "ListCell.h"
-#import "ImageCell.h"
 #import "Utils.h"
-#import "EditViewController.h"
+#import "NoteEditViewController.h"
 #import "NoteDao.h"
 
 @interface NoteListTableViewController ()
@@ -39,11 +38,9 @@
 {
     if ((self = [super initWithCoder:aDecoder])) {
         _tempTopBarColor = self.navigationController.navigationBar.barTintColor;
-        
     }
     return self;
 }
-
 
 - (void)viewDidLoad
 {
@@ -53,7 +50,7 @@
     self.searchBar.tintColor = [UIColor grayColor];
     [self hiddenSearchBar];
     
-    self.notes = [[NoteDao sharedManager] findAll];
+    self.notes = [[NoteDao sharedManager] findAllTextList];
 
 //    UIView *modeView = [[UIView alloc] init];
 //    modeView.backgroundColor = [UIColor grayColor];
@@ -93,28 +90,15 @@
     UITableViewCell *cell;
     Note *note = (self.notes)[indexPath.row];
     
-    if ([note.type isEqualToString:@"image"]) {
-        ImageCell *imgCell = (ImageCell *)[tableView dequeueReusableCellWithIdentifier:@"imagecell"];
-        [imgCell.imgView initWithImage:[UIImage imageWithContentsOfFile:note.imgPath]];
-        imgCell.dateLabel.text = note.date;
-        imgCell.leftBg.backgroundColor = [Utils hexStringToColor:note.leftColor];
-        imgCell.contentBg.backgroundColor = [Utils hexStringToColor:note.bgColor];
-        imgCell.dateLabel.textColor = [Utils hexStringToColor:note.leftColor];
-        imgCell.rightImg.backgroundColor = [Utils hexStringToColor:note.leftColor];
+    ListCell *textCell = (ListCell *)[tableView dequeueReusableCellWithIdentifier:@"textcell"];
+    textCell.contentLabel.text = note.content;
+    textCell.dateLabel.text = note.date;
+    textCell.leftBg.backgroundColor = [Utils hexStringToColor:note.leftColor];
+    textCell.contentBg.backgroundColor = [Utils hexStringToColor:note.bgColor];
+    textCell.dateLabel.textColor = [Utils hexStringToColor:note.leftColor];
+    textCell.rightImg.backgroundColor = [Utils hexStringToColor:note.leftColor];
         
-        cell = imgCell;
-    } else
-    {
-        ListCell *textCell = (ListCell *)[tableView dequeueReusableCellWithIdentifier:@"textcell"];
-        textCell.contentLabel.text = note.content;
-        textCell.dateLabel.text = note.date;
-        textCell.leftBg.backgroundColor = [Utils hexStringToColor:note.leftColor];
-        textCell.contentBg.backgroundColor = [Utils hexStringToColor:note.bgColor];
-        textCell.dateLabel.textColor = [Utils hexStringToColor:note.leftColor];
-        textCell.rightImg.backgroundColor = [Utils hexStringToColor:note.leftColor];
-        
-        cell = textCell;
-    }
+    cell = textCell;
     
     return cell;
 }
@@ -175,127 +159,14 @@
     [self openNoteWith:nil];
 }
 
-- (IBAction)tackPhoto:(id)sender {
-    UIActionSheet *sheet;
-    
-    // 判断是否支持相机
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        sheet  = [[UIActionSheet alloc] initWithTitle:@"选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从相册选择", nil];
-    } else {
-        sheet = [[UIActionSheet alloc] initWithTitle:@"选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"从相册选择", nil];
-    }
-    
-    sheet.tag = 255;
-    
-    [sheet showInView:self.view];
-}
 
-
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (actionSheet.tag == 255) {
-        
-        NSUInteger sourceType = 0;
-        
-        // 判断是否支持相机
-        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            switch (buttonIndex) {
-                case 0:
-                    // 取消
-                    return;
-                case 1:
-                    // 相机
-                    sourceType = UIImagePickerControllerSourceTypeCamera;
-                    break;
-                case 2:
-                    // 相册
-                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                    break;
-            }
-        }
-        else {
-            if (buttonIndex == 0) {
-                return;
-            } else {
-                sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-            }
-        }
-        
-        // 跳转到相机或相册页面
-        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-        imagePickerController.delegate = self;
-        imagePickerController.allowsEditing = YES;
-        imagePickerController.sourceType = sourceType;
-        
-        [self presentViewController:imagePickerController animated:YES completion:^{}];
+- (IBAction)segmentedChange:(id)sender {
+    UISegmentedControl *usc = sender;
+    if (usc.selectedSegmentIndex == 1) {
+        [self.delegate pushToPhotosView];
+        [self.segmentedBar setSelectedSegmentIndex:0];
     }
 }
-
-
-#pragma mark - ImagePicker delegate
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    [picker dismissViewControllerAnimated:YES completion:^{}];
-
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    /* 此处info 有六个值
-     08
-     * UIImagePickerControllerMediaType; // an NSString UTTypeImage)
-     09
-     * UIImagePickerControllerOriginalImage;  // a UIImage 原始图片
-     10
-     * UIImagePickerControllerEditedImage;    // a UIImage 裁剪后图片
-     11
-     * UIImagePickerControllerCropRect;       // an NSValue (CGRect)
-     12
-     * UIImagePickerControllerMediaURL;       // an NSURL
-     13
-     * UIImagePickerControllerReferenceURL    // an NSURL that references an asset in the AssetsLibrary framework
-     14
-     * UIImagePickerControllerMediaMetadata    // an NSDictionary containing metadata from a captured photo
-     15
-     */
-
-    int newImgId = [[NSDate date] timeIntervalSince1970];
-    // 保存图片至本地，方法见下文
-    [self saveImage:image withName:[NSString stringWithFormat:@"%d.png",newImgId]];
-
-    //取得图片路径
-    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.png",newImgId]];
-
-    //创建图片类note对象
-    Note *newNote = [[Note alloc] init];
-    newNote.orderId = newImgId;
-    newNote.type = @"image";
-    newNote.imgPath = fullPath;
-    newNote.fullDate = [Utils getFullTextDate:[NSDate date]];
-    newNote.date = [Utils getShortTextDate:[NSDate date]];
-    NSDictionary *couple = [Utils getOneCoupleColor];
-    newNote.leftColor = [couple objectForKey:@"left"];
-    newNote.bgColor = [couple objectForKey:@"bg"];
-    
-    [self insertNoteToTop:newNote];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-
-{
-    [self dismissViewControllerAnimated:YES completion:^{}];
-}
-
-#pragma mark - 保存图片至沙盒
-
-- (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
-{
-    NSData *imageData = UIImageJPEGRepresentation(currentImage, 0.5);
-    // 获取沙盒目录
-    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imageName];
-    // 将图片写入文件
-    [imageData writeToFile:fullPath atomically:NO];
-}
-
 
 #pragma mark - Navigation
 
@@ -306,7 +177,7 @@
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"edit"]) {
         
-        EditViewController *editViewController = segue.destinationViewController;
+        NoteEditViewController *editViewController = segue.destinationViewController;
         editViewController.delegate = self;
         editViewController.note = _currNote;
     }
@@ -327,7 +198,7 @@
     self.searchBar.text = @"";
     self.searchBar.showsCancelButton = NO;
     [self.searchBar resignFirstResponder];
-    self.notes = [[NoteDao sharedManager] findAll];
+    self.notes = [[NoteDao sharedManager] findAllTextList];
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -339,12 +210,12 @@
 
 #pragma mark - override edit delegate function
 
-- (void)editViewControllerDidCancel:(EditViewController *)controller
+- (void)editViewControllerDidCancel:(UIViewController *)controller
 {
     [self doBackToList];
 }
 
-- (void)editViewController:(EditViewController *)controller didAddNote:(Note *)addNote
+- (void)editViewController:(UIViewController *)controller didAddNote:(Note *)addNote
 {
     //如果没有id 新建
     if (addNote.orderId == 0) {
@@ -428,7 +299,7 @@
 //删除一条记录
 - (void)deleteNoteWith:(int)index
 {
-    [[NoteDao sharedManager] remove:[_notes objectAtIndex:index]];
+    [[NoteDao sharedManager] remove:[_notes objectAtIndex:index] andPhoto:NO];
     [self.notes removeObjectAtIndex:index];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];

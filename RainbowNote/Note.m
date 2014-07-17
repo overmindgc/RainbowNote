@@ -40,4 +40,14 @@
     }
 }
 
+- (NSString *)smallImgPath
+{
+    if (_smallImgPath != nil) {
+        return _smallImgPath;
+    } else
+    {
+        return @"";
+    }
+}
+
 @end
