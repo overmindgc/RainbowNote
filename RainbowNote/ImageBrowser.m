@@ -8,6 +8,7 @@
 //
 
 #import "ImageBrowser.h"
+#import "ImagePopView.h"
 
 static CGRect oldframe;
 
@@ -17,9 +18,11 @@ static CGRect oldframe;
     UIImage *image = avatarImageView.image;
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    
     oldframe = [avatarImageView convertRect:avatarImageView.bounds toView:window];
     backgroundView.backgroundColor = [UIColor blackColor];
     backgroundView.alpha = 0;
+    
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:oldframe];
     imageView.image = image;
     imageView.tag = 1;
@@ -39,7 +42,8 @@ static CGRect oldframe;
 
 + (void)hideImage:(UITapGestureRecognizer*)tap{
     UIView *backgroundView = tap.view;
-    UIImageView *imageView = (UIImageView*)[tap.view viewWithTag:1];
+    UIImageView *imageView = (UIImageView *)[tap.view viewWithTag:1];
+    
     [UIView animateWithDuration:0.3 animations:^{
         imageView.frame = oldframe;
         backgroundView.alpha=0;
@@ -47,4 +51,15 @@ static CGRect oldframe;
         [backgroundView removeFromSuperview];
     }];
 }
+
++ (void)showReSizeableImage:(UIImageView *)avatarImageView{
+    UIImage *image = avatarImageView.image;
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    
+    ImagePopView *popView = [[ImagePopView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    popView.image = image;
+
+    [window addSubview:popView];
+}
+
 @end

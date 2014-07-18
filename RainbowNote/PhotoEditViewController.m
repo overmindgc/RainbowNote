@@ -154,13 +154,12 @@
 }
 
 - (IBAction)actionsClick:(id)sender {
-
 }
 
 //图片点击响应
 - (void)magnifyImage
 {
-    [ImageBrowser showImage:self.contentImage];//调用方法
+    [ImageBrowser showReSizeableImage:self.contentImage];//调用方法
 }
 
 #pragma mark - textfieldDelegates

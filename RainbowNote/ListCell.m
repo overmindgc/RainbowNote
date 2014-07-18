@@ -22,6 +22,12 @@
 - (void)awakeFromNib
 {
     // Initialization code
+    
+    self.leftBg.layer.shadowOffset = CGSizeMake(2, 0);
+    self.leftBg.layer.shadowColor = [[UIColor grayColor] CGColor];
+    self.leftBg.layer.shadowOpacity = 0.8;
+    self.leftBg.layer.shadowRadius = 1;
+    
     //设置选中颜色
     self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
     self.selectedBackgroundView.backgroundColor = [UIColor whiteColor];
