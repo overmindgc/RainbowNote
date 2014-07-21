@@ -23,6 +23,7 @@
 @implementation NoteEditViewController
 {
     BOOL isFullScreen;
+    BOOL hasChanged;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,25 +35,13 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    //监听键盘弹出和中英文切换
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    //移除
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     isFullScreen = NO;
+    hasChanged = NO;
+    
     self.contentText.delegate = self;
     originTextHeight = self.contentText.frame.size.height;
     
@@ -86,6 +75,24 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //监听键盘弹出和中英文切换
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    //监听文本内容改变
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contentTextDidChange) name:UITextViewTextDidChangeNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    //移除
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidChangeNotification object:nil];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -107,7 +114,7 @@
 #pragma mark actions
 
 - (IBAction)backClick:(id)sender {
-    if (self.contentText.editable == YES) {
+    if (self.contentText.editable == YES && hasChanged == YES) {
         [self.delegate editViewController:self didAddNote:[self getNoteToSave]];
     } else {
         [self.delegate editViewControllerDidCancel:self];
@@ -116,7 +123,9 @@
 
 - (IBAction)doneClick:(id)sender
 {
-    [self.delegate editViewController:self didAddNote:[self getNoteToSave]];
+    if (hasChanged == YES) {
+        [self.delegate editViewController:self didAddNote:[self getNoteToSave]];
+    }
 //    self.navigationItem.rightBarButtonItem = nil;
 //    self.contentText.editable = NO;
 //    [self.contentText resignFirstResponder];
@@ -158,6 +167,12 @@
 	
     //改变textfield的高度
     self.contentText.frame = CGRectMake(self.contentText.frame.origin.x, self.contentText.frame.origin.y, self.contentText.frame.size.width, self.view.frame.size.height - height - 25);
+}
+
+//内容发生改变
+- (void)contentTextDidChange
+{
+    hasChanged = YES;
 }
 
 #pragma mark - UITextViewDelegate

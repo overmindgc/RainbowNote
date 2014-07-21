@@ -14,6 +14,7 @@
 {
     UIActionSheet *sheet;
     BOOL isEdit;
+    BOOL hasChanged;
 }
 
 @property (nonatomic,retain) UIBarButtonItem *tempRightBarItem;
@@ -40,6 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     isEdit = NO;
+    hasChanged = NO;
     _tempRightBarItem = self.navigationItem.rightBarButtonItem;
     
     if (_note != nil) {
@@ -58,7 +60,7 @@
         self.contentImage.image = orginImg;
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage)];
-        self.contentImage.userInteractionEnabled=YES;
+        self.contentImage.userInteractionEnabled = YES;
         [self.contentImage addGestureRecognizer:tap];
         
         
@@ -82,6 +84,9 @@
         self.contentText.returnKeyType =UIReturnKeyDone;
         [self.scrollView addSubview:self.contentText];
         self.contentText.text = _note.content;
+        if ([_note.content isEqualToString:@""]) {
+            [self.contentText becomeFirstResponder];
+        }
         
         //创建dateLabel
         self.dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(9, 54, 300, 20)];
@@ -96,11 +101,20 @@
         [self.scrollView addSubview:line];
     } else
     {
-        _note = [[Note alloc] init];
-        _note.orderId = 0;
-        self.dateLabel.text = [Utils getFullTextDate:[NSDate date]];
-        [self.contentText becomeFirstResponder];
+
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    //内容有变化的时候
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contentTextDidChange) name:UITextFieldTextDidChangeNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    //移除监听
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -123,7 +137,7 @@
 #pragma mark actions
 
 - (IBAction)backClick:(id)sender {
-    if (isEdit == YES) {
+    if (isEdit == YES && hasChanged == YES) {
         [self.delegate editViewController:self didAddNote:[self getNoteToSave]];
     } else {
         [self.delegate editViewControllerDidCancel:self];
@@ -160,6 +174,12 @@
 - (void)magnifyImage
 {
     [ImageBrowser showReSizeableImage:self.contentImage];//调用方法
+}
+
+//内容有变化的时候响应
+- (void)contentTextDidChange
+{
+    hasChanged = YES;
 }
 
 #pragma mark - textfieldDelegates

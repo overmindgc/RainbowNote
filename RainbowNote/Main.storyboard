@@ -29,23 +29,23 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C8A-Wf-Atm">
-                                            <rect key="frame" x="10" y="3" width="310" height="65"/>
+                                            <rect key="frame" x="5" y="3" width="310" height="65"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="北京易才博普奥管理顾问有限公司" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="226" translatesAutoresizingMaskIntoConstraints="NO" id="h1l-fV-E9Z">
-                                                    <rect key="frame" x="10" y="11" width="226" height="44"/>
+                                                    <rect key="frame" x="15" y="11" width="226" height="44"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12-24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJ3-B6-mhL">
-                                                    <rect key="frame" x="236" y="22" width="49" height="21"/>
+                                                    <rect key="frame" x="241" y="22" width="49" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_write-right.png" translatesAutoresizingMaskIntoConstraints="NO" id="MiW-R6-cnV">
-                                                    <rect key="frame" x="288" y="25" width="9" height="16"/>
+                                                    <rect key="frame" x="293" y="25" width="9" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -286,7 +286,7 @@
         <scene sceneID="SPc-8S-CYy">
             <objects>
                 <navigationController storyboardIdentifier="photolist" definesPresentationContext="YES" hidesBottomBarWhenPushed="YES" id="0xX-cR-plm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="图片" image="5899F879-4ED4-497C-9BEC-C2CF96E29A29" id="H1m-QU-sCd"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="图片" image="8005B5F8-6DC8-4DDB-9DB4-28BFF0ABA3C0" id="H1m-QU-sCd"/>
                     <navigationItem key="navigationItem" id="hnU-J7-KFh"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2LY-9P-uze">
@@ -402,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OpI-kV-IZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1538" y="967"/>
+            <point key="canvasLocation" x="1421" y="962"/>
         </scene>
         <!--Navigation Controller - 文字-->
         <scene sceneID="0L5-fv-Nem">
@@ -426,7 +426,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="5899F879-4ED4-497C-9BEC-C2CF96E29A29" width="30" height="30">
+        <image name="8005B5F8-6DC8-4DDB-9DB4-28BFF0ABA3C0" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz

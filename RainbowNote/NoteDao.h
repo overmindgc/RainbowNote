@@ -26,7 +26,7 @@
 - (NSMutableArray *)findAll;
 
 //查询所有文本类
-- (NSMutableArray *)findAllTextList;
+- (NSMutableArray *)findAllTextListBy:(NSString *)content;
 
 //查询所有照片类
 - (NSMutableArray *)findAllPhotoList;

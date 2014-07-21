@@ -50,7 +50,7 @@
     self.searchBar.tintColor = [UIColor grayColor];
     [self hiddenSearchBar];
     
-    self.notes = [[NoteDao sharedManager] findAllTextList];
+    self.notes = [[NoteDao sharedManager] findAllTextListBy:nil];
 
 //    UIView *modeView = [[UIView alloc] init];
 //    modeView.backgroundColor = [UIColor grayColor];
@@ -176,7 +176,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"edit"]) {
-        
         NoteEditViewController *editViewController = segue.destinationViewController;
         editViewController.delegate = self;
         editViewController.note = _currNote;
@@ -198,7 +197,8 @@
     self.searchBar.text = @"";
     self.searchBar.showsCancelButton = NO;
     [self.searchBar resignFirstResponder];
-    self.notes = [[NoteDao sharedManager] findAllTextList];
+    self.notes = [[NoteDao sharedManager] findAllTextListBy:nil];
+    [self.tableView reloadData];
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -206,6 +206,8 @@
     //按软键盘右下角的搜索按钮时触发
     [self.searchBar resignFirstResponder];
     self.searchBar.showsCancelButton = NO;
+    self.notes = [[NoteDao sharedManager] findAllTextListBy:searchBar.text];
+    [self.tableView reloadData];
 }
 
 #pragma mark - override edit delegate function

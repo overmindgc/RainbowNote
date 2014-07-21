@@ -16,6 +16,7 @@
 		7B0955C719639CF400C4A7BD /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0955C619639CF400C4A7BD /* ListCell.m */; };
 		7B0955CB19639E3C00C4A7BD /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0955CA19639E3C00C4A7BD /* Utils.m */; };
 		7B0955CD1963B39200C4A7BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0955CC1963B39200C4A7BD /* Main.storyboard */; };
+		7B32EBA0197D112200CE06DA /* NoteColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B32EB9F197D112200CE06DA /* NoteColorPicker.m */; };
 		7B3CA99119751AA300E2B975 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CA99019751AA300E2B975 /* PhotosTableViewController.m */; };
 		7B3CA99419751AC800E2B975 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CA99319751AC800E2B975 /* PhotoCell.m */; };
 		7B3CA9971975451300E2B975 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3CA9961975451300E2B975 /* RootViewController.m */; };
@@ -58,6 +59,8 @@
 		7B0955C919639E3C00C4A7BD /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		7B0955CA19639E3C00C4A7BD /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		7B0955CC1963B39200C4A7BD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7B32EB9E197D112200CE06DA /* NoteColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteColorPicker.h; sourceTree = "<group>"; };
+		7B32EB9F197D112200CE06DA /* NoteColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteColorPicker.m; sourceTree = "<group>"; };
 		7B3CA98F19751AA300E2B975 /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosTableViewController.h; sourceTree = "<group>"; };
 		7B3CA99019751AA300E2B975 /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosTableViewController.m; sourceTree = "<group>"; };
 		7B3CA99219751AC800E2B975 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 				7B3CA99319751AC800E2B975 /* PhotoCell.m */,
 				7BDF86C01977DE4B005F53D8 /* ImagePopView.h */,
 				7BDF86C11977DE4B005F53D8 /* ImagePopView.m */,
+				7B32EB9E197D112200CE06DA /* NoteColorPicker.h */,
+				7B32EB9F197D112200CE06DA /* NoteColorPicker.m */,
 			);
 			name = comps;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 				7B0955C019639C5600C4A7BD /* Note.m in Sources */,
 				7BAB252C1963EB8E003F8857 /* NoteEditViewController.m in Sources */,
 				7B0955C719639CF400C4A7BD /* ListCell.m in Sources */,
+				7B32EBA0197D112200CE06DA /* NoteColorPicker.m in Sources */,
 				7B0955BD1962BD3B00C4A7BD /* NoteListTableViewController.m in Sources */,
 				7B09559E1962BA9600C4A7BD /* AppDelegate.m in Sources */,
 				7BDF86C21977DE4B005F53D8 /* ImagePopView.m in Sources */,

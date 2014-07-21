@@ -122,17 +122,7 @@
     NSMutableArray *listData = [[NSMutableArray alloc] init];
     
     for (NSDictionary *dict in array) {
-        Note *note = [[Note alloc] init];
-        note.orderId = [[dict objectForKey:@"orderId"] intValue];
-        note.type = [dict objectForKey:@"type"];
-        note.smallImgPath = [dict objectForKey:@"smallImgPath"];
-        note.imgPath = [dict objectForKey:@"imgPath"];
-        note.content = [dict objectForKey:@"content"];
-        note.leftColor = [dict objectForKey:@"leftColor"];
-        note.bgColor = [dict objectForKey:@"bgColor"];
-        note.date = [dict objectForKey:@"date"];
-        note.fullDate = [dict objectForKey:@"fullDate"];
-        
+        Note *note = [self getNoteBy:dict];
         [listData addObject:note];
     }
     
@@ -140,7 +130,7 @@
 }
 
 //查询所有文本类
-- (NSMutableArray *)findAllTextList
+- (NSMutableArray *)findAllTextListBy:(NSString *)content
 {
     NSString *path = [self applicationDocumentsDirectoryFile];
     NSMutableArray *array = [[NSMutableArray alloc] initWithContentsOfFile:path];
@@ -149,16 +139,17 @@
     
     for (NSDictionary *dict in array) {
         if ([[dict objectForKey:@"type"] isEqualToString:@"text"]) {
-            Note *note = [[Note alloc] init];
-            note.orderId = [[dict objectForKey:@"orderId"] intValue];
-            note.type = [dict objectForKey:@"type"];
-            note.content = [dict objectForKey:@"content"];
-            note.leftColor = [dict objectForKey:@"leftColor"];
-            note.bgColor = [dict objectForKey:@"bgColor"];
-            note.date = [dict objectForKey:@"date"];
-            note.fullDate = [dict objectForKey:@"fullDate"];
+            if (content == nil || [content isEqualToString:@""]) {
+                Note *note = [self getNoteBy:dict];
+                [listData addObject:note];
+            } else {
+                //查找内容是否有匹配字符
+                if ([[dict objectForKey:@"content"] rangeOfString:content].length > 0) {
+                    Note *note = [self getNoteBy:dict];
+                    [listData addObject:note];
+                }
+            }
             
-            [listData addObject:note];
         }
     }
     
@@ -175,17 +166,7 @@
     
     for (NSDictionary *dict in array) {
         if ([[dict objectForKey:@"type"] isEqualToString:@"image"]) {
-            Note *note = [[Note alloc] init];
-            note.orderId = [[dict objectForKey:@"orderId"] intValue];
-            note.type = [dict objectForKey:@"type"];
-            note.smallImgPath = [dict objectForKey:@"smallImgPath"];
-            note.imgPath = [dict objectForKey:@"imgPath"];
-            note.content = [dict objectForKey:@"content"];
-            note.leftColor = [dict objectForKey:@"leftColor"];
-            note.bgColor = [dict objectForKey:@"bgColor"];
-            note.date = [dict objectForKey:@"date"];
-            note.fullDate = [dict objectForKey:@"fullDate"];
-            
+            Note *note = [self getNoteBy:dict];
             [listData addObject:note];
         }
     }
@@ -202,21 +183,29 @@
     
     for (NSDictionary *dict in array) {
         if ([[dict objectForKey:@"orderId"] intValue] == model.orderId) {
-            Note *note = [[Note alloc] init];
-            note.orderId = [[dict objectForKey:@"orderId"] intValue];
-            note.type = [dict objectForKey:@"type"];
-            note.smallImgPath = [dict objectForKey:@"smallImgPath"];
-            note.imgPath = [dict objectForKey:@"imgPath"];
-            note.content = [dict objectForKey:@"content"];
-            note.leftColor = [dict objectForKey:@"leftColor"];
-            note.bgColor = [dict objectForKey:@"bgColor"];
-            note.date = [dict objectForKey:@"date"];
-            note.fullDate = [dict objectForKey:@"fullDate"];
+            Note *note = [self getNoteBy:dict];
             return note;
         }
     }
     
     return nil;
+}
+
+
+- (Note *)getNoteBy:(NSDictionary *)dict
+{
+    Note *note = [[Note alloc] init];
+    note.orderId = [[dict objectForKey:@"orderId"] intValue];
+    note.type = [dict objectForKey:@"type"];
+    note.smallImgPath = [dict objectForKey:@"smallImgPath"];
+    note.imgPath = [dict objectForKey:@"imgPath"];
+    note.content = [dict objectForKey:@"content"];
+    note.leftColor = [dict objectForKey:@"leftColor"];
+    note.bgColor = [dict objectForKey:@"bgColor"];
+    note.date = [dict objectForKey:@"date"];
+    note.fullDate = [dict objectForKey:@"fullDate"];
+    
+    return note;
 }
 
 @end
